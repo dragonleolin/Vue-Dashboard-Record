@@ -6,6 +6,8 @@ import VueAxios from 'vue-axios'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.min.css'
 import 'bootstrap';
+import VeeValidate from 'vee-validate';
+import zhTw_Validate from 'vee-validate/dist/locale/zh_TW'
 
 import App from './App'
 import router from './router'
@@ -13,7 +15,10 @@ import './bus'
 import currencyFilter from './filters/currency'
 
 Vue.config.productionTip = false
-Vue.use(VueAxios, axios)
+Vue.use(VueAxios, axios),
+
+VeeValidate.Validator.localize('zh_TW', zhTw_Validate);
+Vue.use(VeeValidate);
 Vue.component('Loading', Loading)
 Vue.filter('currency', currencyFilter)
 
